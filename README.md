@@ -3,11 +3,16 @@ Ttc Erembodegem Prijzenlijst
 
 ```
 # Build once
-npm run build
+gulp build
 
 # Watch it
-npm run watch
+gulp start
 
 # Run http server
 npm run serve
 ```
+
+Transform to pdf
+----------------
+
+TODO :p

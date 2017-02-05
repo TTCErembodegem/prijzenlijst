@@ -4,15 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "jade -P ./",
-    "watch": "nodemon --ext jade --watch ./ --exec \"npm run build\"",
-    "serve": "http-server ./ -o"
+    "build": "gulp pug",
+    "start": "gulp",
+    "serve": "http-server ./dist -o"
   },
   "author": "Wouter Van Schandevijl <woutervs@hotmail.com>",
   "license": "ISC",
   "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-plumber": "^1.1.0",
+    "gulp-pug": "^3.2.0",
     "http-server": "^0.9.0",
-    "jade": "^1.11.0",
-    "nodemon": "^1.11.0"
+    "pug": "^2.0.0-beta11"
   }
 }
