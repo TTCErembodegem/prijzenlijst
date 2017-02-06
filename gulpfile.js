@@ -4,6 +4,7 @@ var src = 'templates/';
 var dest = 'dist/';
 
 var gulp = require('gulp');
+var gutil = require('gulp-util');
 var plumber = require('gulp-plumber');
 var pug = require('gulp-pug');
 var browserSync = require('browser-sync').create();
@@ -41,7 +42,12 @@ gulp.task('pug', function() {
 
 
 gulp.task('pdf', function() {
-  toHtml().pipe(pdf()).pipe(gulp.dest(dest));
+  toHtml()
+  .pipe(pdf())
+  .pipe(gulp.dest(dest))
+  .on('end', function() {
+    gutil.log('Pdfs created!');
+  });
 });
 
 
