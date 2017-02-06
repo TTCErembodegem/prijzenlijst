@@ -5,14 +5,12 @@ Ttc Erembodegem Prijzenlijst
 # Build once
 gulp build
 
-# Watch it
-gulp start
+# Build, watch and serve
+npm start
 
-# Run http server
-npm run serve
+# Kill dist folder
+gulp clean
+
+# Just the pdfs
+gulp pdf
 ```
-
-Transform to pdf
-----------------
-
-TODO :p

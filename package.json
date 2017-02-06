@@ -11,10 +11,12 @@
   "license": "ISC",
   "devDependencies": {
     "browser-sync": "^2.18.7",
+    "del": "^2.2.2",
     "gulp": "^3.9.1",
     "gulp-html-pdf": "^0.3.0",
     "gulp-plumber": "^1.1.0",
     "gulp-pug": "^3.2.0",
-    "pug": "^2.0.0-beta11"
+    "pug": "^2.0.0-beta11",
+    "run-sequence": "^1.2.2"
   }
 }

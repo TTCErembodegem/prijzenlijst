@@ -1,60 +1,71 @@
 'use strict';
 
-// Generate html templates on file save
-// To start a static http server:
-// $ npm run serve
-
-var src = './templates/';
-var dest = './dist/';
+var src = 'templates/';
+var dest = 'dist/';
 
 var gulp = require('gulp');
 var plumber = require('gulp-plumber');
 var pug = require('gulp-pug');
 var browserSync = require('browser-sync').create();
 var pdf = require('gulp-html-pdf');
+var del = require('del');
+var runSequence = require('run-sequence');
 
-gulp.task('pug', function() {
-  gulp.src(src + '*.pug')
+
+
+gulp.task('clean', function() {
+  return del(dest);
+});
+
+
+
+gulp.task('clean-serve', function() {
+  runSequence('clean', 'serve');
+});
+
+
+
+function toHtml() {
+  return gulp.src(src + '*.pug')
   .pipe(plumber())
   .pipe(pug({
     locals: {},
     pretty: true
-  }))
-  .pipe(gulp.dest(dest));
+  }));
+}
+
+
+gulp.task('pug', function() {
+  toHtml().pipe(gulp.dest(dest));
 });
+
+
+gulp.task('pdf', function() {
+  toHtml().pipe(pdf()).pipe(gulp.dest(dest));
+});
+
 
 
 
 gulp.task('copyres', function() {
-  gulp.src([src + '*.*']).pipe(gulp.dest(dest));
+  gulp.src([src + '**/!(*.pug)']).pipe(gulp.dest(dest));
 });
 
 
 
-gulp.task('html-pdf', function() {
-  gulp.src(dest + '**/*.html')
-  .pipe(pdf())
-  .pipe(gulp.dest(dest));
-});
-
-
-
-gulp.task('serve', ['pdf'], function () {
+gulp.task('serve', ['build'], function () {
   browserSync.init({
     server: {
       baseDir: './dist'
     }
   });
 
-  gulp.watch(src + '**/*.pug', ['pug']);
-  gulp.watch(src + '**/*.*', ['copyres']);
-  gulp.watch(dest + '**/*.html', ['html-pdf']);
-
+  gulp.watch(src + '**/*.pug', ['pug', 'pdf']);
+  gulp.watch(src + '**/!(*.pug)', ['copyres']);
   gulp.watch(dest + '**/*.*').on('change', browserSync.reload);
 });
 
 
 
-gulp.task('build', ['copyres','pug', 'html-pdf']);
-gulp.task('pdf', ['build']);
-gulp.task('default', ['serve']);
+gulp.task('build', ['copyres','pug', 'pdf']);
+gulp.task('default', ['clean-serve']);
