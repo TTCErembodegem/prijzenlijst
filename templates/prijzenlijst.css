@@ -1,0 +1,41 @@
+* {
+	font-family: Helvetica;
+}
+
+.container {
+	margin-top: 20px;
+}
+
+.logo {
+	width: 100%;
+}
+
+.logo td {
+	text-transform: uppercase;
+	font-size: 28px;
+	font-weight: bold;
+}
+
+.logo .first {
+	text-align: right;
+}
+
+/*.logo div {
+	border: 1px solid black;
+}*/
+
+/*.logo .left {
+	width: 33%;
+	text-align: right;
+	vertical-align: middle;
+}
+
+.logo .middle {
+	width: 33%;
+}
+
+.logo .right {
+	width: auto;
+	vertical-align: middle;
+}
+*/

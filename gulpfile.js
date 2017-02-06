@@ -21,10 +21,15 @@ gulp.task('pug', function() {
   .pipe(gulp.dest(dest));
 });
 
-
-gulp.task('watch', function() {
-  gulp.watch(src + '**/*', ['pug']);
+gulp.task('copyres', function() {
+  gulp.src([src + '*.*']).pipe(gulp.dest(dest));
 });
 
-gulp.task('build', ['pug']);
+
+gulp.task('watch', function() {
+  gulp.watch(src + '**/*.pug', ['pug']);
+  gulp.watch(src + '**/*.*', ['copyres']);
+});
+
+gulp.task('build', ['copyres','pug']);
 gulp.task('default', ['build', 'watch']);
