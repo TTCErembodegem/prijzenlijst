@@ -11,6 +11,7 @@ var gulp = require('gulp');
 var plumber = require('gulp-plumber');
 var pug = require('gulp-pug');
 var browserSync = require('browser-sync').create();
+var pdf = require('gulp-html-pdf');
 
 gulp.task('pug', function() {
   gulp.src(src + '*.pug')
@@ -30,7 +31,15 @@ gulp.task('copyres', function() {
 
 
 
-gulp.task('serve', ['build'], function () {
+gulp.task('html-pdf', function() {
+  gulp.src(dest + '**/*.html')
+  .pipe(pdf())
+  .pipe(gulp.dest(dest));
+});
+
+
+
+gulp.task('serve', ['pdf'], function () {
   browserSync.init({
     server: {
       baseDir: './dist'
@@ -39,16 +48,13 @@ gulp.task('serve', ['build'], function () {
 
   gulp.watch(src + '**/*.pug', ['pug']);
   gulp.watch(src + '**/*.*', ['copyres']);
+  gulp.watch(dest + '**/*.html', ['html-pdf']);
 
   gulp.watch(dest + '**/*.*').on('change', browserSync.reload);
 });
 
 
 
-gulp.task('watch', function() {
-  gulp.watch(src + '**/*.pug', ['pug']);
-  gulp.watch(src + '**/*.*', ['copyres']);
-});
-
-gulp.task('build', ['copyres','pug']);
+gulp.task('build', ['copyres','pug', 'html-pdf']);
+gulp.task('pdf', ['build']);
 gulp.task('default', ['serve']);
