@@ -43,7 +43,7 @@ gulp.task('pug', function() {
 
 gulp.task('pdf', function() {
   toHtml()
-  .pipe(pdf())
+  .pipe(pdf({base: `file:///${ __dirname}/dist/`}))
   .pipe(gulp.dest(dest))
   .on('end', function() {
     gutil.log('Pdfs created!');
@@ -67,8 +67,8 @@ gulp.task('serve', ['build'], function () {
   });
 
   gulp.watch(src + '**/*.pug', ['pug', 'pdf']);
-  gulp.watch(src + '**/!(*.pug)', ['copyres']);
-  gulp.watch(dest + '**/*.*').on('change', browserSync.reload);
+  gulp.watch(src + '**/!(*.pug)', ['copyres', 'pdf']);
+  gulp.watch(dest + '**/*.*').on('change', browserSync.reload); // TODO: great.. since the pdf the reload doesn't work anymore
 });
 
 

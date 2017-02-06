@@ -4,6 +4,7 @@
 
 body {
 	margin-top: 20px;
+	width: 793px;
 }
 
 .logo {
@@ -61,5 +62,8 @@ div.price-badge {
 	font-size: 24px;
 	text-align: center;
 	color: #fff;
+
+	/*-webkit-print-color-adjust: exact;*/
 	background: #000;
+	/*background-color: #000;*/
 }
