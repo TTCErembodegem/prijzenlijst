@@ -1,3 +1,30 @@
+mixin dranken(price, items)
+	.col-sm-6.price-container
+		section.price
+			div
+				.price-badge € #{price}
+
+			div
+				for itm in items
+					span= itm
+					br
+
+mixin dranken150
+	+dranken('1,50', ['Cola / Light / Zero', 'Jupiler / Hoegaerden', 'Spa / Vittel', 'Koffie / Soep (!?)'])
+
+mixin dranken200
+	+dranken('2,00', ['Ice-Tea', 'Wijn', 'Carlsberg'])
+
+mixin drankenAq
+	+dranken('2,50', ['Aquarius (flesje)', 'Orange / Lemon / Red Peach'])
+
+mixin drankenZwareBieren
+	+dranken('2.50', ['Zware bieren', 'Leffe / Blond / Donker (!?)', 'Duvel / La Chouffe (!?)'])
+
+mixin versnaperingen
+	+dranken('1,00', ['Chips / Zout / Paprika', 'Chocolade / Suikerwafel'])
+
+
 doctype html
 html
 head
@@ -7,52 +34,27 @@ head
 	link(rel="stylesheet" href="prijzenlijst.css")
 
 body
-	.container
-		table.logo
-			tr
-				td.first(width="49%") Prijzenlijst
-				td(width="1%")
-					img(src="logo-only.png")
-				td(width="50%") Erembodegem
-
-		table.table
-			tbody
-				tr
-					td.
-						Cola / Light / Zero<br>
-						Spa / Vittel<br>
-						Koffie / Soep<br>
-						Jupiler / Hoegaerden
-
-					td € 1,50
-
-				tr
-					td.
-						Ice-Tea<br>
-						Wijn<br>
-						Carlsberg
-
-					td € 2,00
-
-				tr
-					td.
-						Aquarius (flesje)<br>
-						Orange / Lemon / Red Peach
-
-					td € 2,50
-
-				tr
-					td.
-						Zware bieren<br>
-						Leffe / Blond / Donker (!?)<br>
-						Duvel
-
-					td € 2,50
+	table.logo
+		tr
+			td.first(width="49%") Prijzenlijst
+			td(width="1%")
+				img(src="logo-only.png")
+			td(width="50%") Erembodegem
 
 
-				tr
-					td.
-						Chips / Zout / Paprika<br>
-						Chocolade / Suikerwafel
 
-					td € 1,00
+	.container.prices
+		.row
+			+dranken150
+			+drankenZwareBieren
+
+		hr
+
+		.row
+			+drankenAq
+			+dranken200
+
+		hr
+
+		.row
+			+versnaperingen

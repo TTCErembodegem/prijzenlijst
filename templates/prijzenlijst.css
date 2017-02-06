@@ -2,7 +2,7 @@
 	font-family: Helvetica;
 }
 
-.container {
+body {
 	margin-top: 20px;
 }
 
@@ -20,22 +20,46 @@
 	text-align: right;
 }
 
-/*.logo div {
-	border: 1px solid black;
-}*/
 
-/*.logo .left {
-	width: 33%;
-	text-align: right;
-	vertical-align: middle;
+.prices {
+	margin-top: 40px;
 }
 
-.logo .middle {
-	width: 33%;
+.row {
+	margin-bottom: 25px;
+	display: flex;
 }
 
-.logo .right {
-	width: auto;
-	vertical-align: middle;
+.price-container {
+	display: flex;
 }
-*/
+
+section.price {
+	display: flex;
+	align-self: center;
+}
+section.price > div:first-child {
+	float: left;
+	width: 140px;
+	align-self: center;
+}
+section.price > div:nth-child(2) {
+	overflow: hidden;
+	font-size: 24px;
+	align-self: center;
+}
+
+
+div.price-badge {
+	margin: 0 auto;
+
+	width: 80px;
+	height: 80px;
+	line-height: 80px;
+	border-radius: 80px;
+
+	font-size: 24px;
+	text-align: center;
+	color: #fff;
+	background: #000;
+}
