@@ -2,6 +2,44 @@
 	font-family: Helvetica;
 }
 
-/*td {
+html, body {
+	margin: 0;;
+	padding: 0;
+}
+
+.page {
+	width: 333px;
+	height: 464px;
+
+	max-width: 333px;
+	border: 1px solid black;
+	padding: 6px;
+}
+
+h1 {
 	font-size: 24px;
-}*/
+	margin: 0;
+}
+
+.header {
+	margin-top: 8px;
+}
+
+.prices {
+	margin-top: 25px;
+}
+
+section.price {
+	margin-top: 25px;
+}
+
+.consumptions {
+	margin-top: 10px;
+}
+
+.total {
+	float: right;
+	margin-top: 25px;
+	padding: 10px;
+	border: 1px solid black;
+}

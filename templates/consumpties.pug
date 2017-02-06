@@ -1,56 +1,52 @@
+mixin dranken(price, items)
+	if items
+		.col-sm-6.price-container
+			section.price
+				div #{items}
+				.consumptions ............................................ X #{price} = ..............
+
+
+mixin dranken150
+	+dranken(dranken150.price, dranken150.itemsShort)
+
+mixin dranken200
+	+dranken(dranken200.price, dranken200.itemsShort)
+
+mixin drankenAq
+	+dranken(drankenAq.price, drankenAq.itemsShort)
+
+mixin drankenZwareBieren
+	+dranken(drankenZwareBieren.price, drankenZwareBieren.itemsShort)
+
+mixin versnaperingen
+	+dranken(versnaperingen.price, versnaperingen.itemsShort)
+
 doctype html
 html
 head
 	meta(charset="utf-8")
 	title Consumpties
-	link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css")
 	link(rel="stylesheet" href="consumpties.css")
 
 body
-	h1 Consumpties
-	div
-		span Naam
-		span Datum
+	.page
+		h1 Consumpties
+		.header
+			span Datum:......................
+			br
+			br
+			span Naam:.......................
 
-	.container
-		table.table
-			tbody
-				tr
-					td.
-						Cola / Light / Zero<br>
-						Spa / Vittel<br>
-						Koffie / Soep<br>
-						Jupiler / Hoegaerden
+		.container.prices
+			.row
+				+dranken150
+				+drankenZwareBieren
 
-					td € 1,50
+			.row
+				+drankenAq
+				+dranken200
 
-				tr
-					td.
-						Ice-Tea<br>
-						Wijn<br>
-						Carlsberg
+			.row
+				+versnaperingen
 
-					td € 2,00
-
-				tr
-					td.
-						Aquarius (flesje)<br>
-						Orange / Lemon / Red Peach
-
-					td € 2,50
-
-				tr
-					td.
-						Zware bieren<br>
-						Leffe / Blond / Donker (!?)<br>
-						Duvel
-
-					td € 2,50
-
-
-				tr
-					td.
-						Chips / Zout / Paprika<br>
-						Chocolade / Suikerwafel
-
-					td € 1,00
+		.total <b>Totaal</b> = ..............

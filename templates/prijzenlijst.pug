@@ -10,19 +10,19 @@ mixin dranken(price, items)
 					br
 
 mixin dranken150
-	+dranken('1,50', ['Cola / Light / Zero', 'Jupiler / Hoegaerden', 'Spa / Vittel', 'Koffie / Soep (!?)'])
+	+dranken(dranken150.price, dranken150.items)
 
 mixin dranken200
-	+dranken('2,00', ['Ice-Tea', 'Wijn', 'Carlsberg'])
+	+dranken(dranken200.price, dranken200.items)
 
 mixin drankenAq
-	+dranken('2,50', ['Aquarius (flesje)', 'Orange / Lemon / Red Peach'])
+	+dranken(drankenAq.price, drankenAq.items)
 
 mixin drankenZwareBieren
-	+dranken('2,50', ['Zware bieren', 'Leffe / Blond / Donker (!?)', 'Duvel / La Chouffe (!?)'])
+	+dranken(drankenZwareBieren.price, drankenZwareBieren.items)
 
 mixin versnaperingen
-	+dranken('1,00', ['Chips / Zout / Paprika', 'Chocolade / Suikerwafel'])
+	+dranken(versnaperingen.price, versnaperingen.items)
 
 
 doctype html

@@ -13,6 +13,34 @@ var del = require('del');
 var runSequence = require('run-sequence');
 
 
+var locals = {
+  dranken150: {
+    price: '1,50',
+    items: ['Cola / Light / Zero', 'Jupiler / Hoegaerden', 'Spa / Vittel', 'Koffie / Soep (!?)'],
+    itemsShort: 'Cola / Jupiler / Hoegaerden / Spa / Vittel / Koffie / Soep (!?)',
+  },
+  dranken200: {
+    price: '2,00',
+    items: ['Ice-Tea', 'Wijn', 'Carlsberg'],
+    itemsShort: 'Ice-Tea / Wijn / Carlsberg',
+  },
+  drankenAq: {
+    price: '2,50',
+    items: ['Aquarius (flesje)', 'Orange / Lemon / Red Peach'],
+    itemsShort: null,
+  },
+  drankenZwareBieren: {
+    price: '2,50',
+    items: ['Zware bieren', 'Leffe / Blond / Donker (!?)', 'Duvel / La Chouffe (!?)'],
+    itemsShort: 'Aquarius / Leffe / Duvel / La Chouffe',
+  },
+  versnaperingen: {
+    price: '1,00',
+    items: ['Chips / Zout / Paprika', 'Chocolade / Suikerwafel'],
+    itemsShort: 'Chips / Chocolade / Suikerwafel',
+  },
+};
+
 
 gulp.task('clean', function() {
   return del(dest);
@@ -30,7 +58,7 @@ function toHtml() {
   return gulp.src(src + '*.pug')
   .pipe(plumber())
   .pipe(pug({
-    locals: {},
+    locals: locals,
     pretty: true
   }));
 }
