@@ -5,16 +5,15 @@
   "main": "index.js",
   "scripts": {
     "build": "gulp pug",
-    "start": "gulp",
-    "serve": "http-server ./dist -o"
+    "start": "gulp"
   },
   "author": "Wouter Van Schandevijl <woutervs@hotmail.com>",
   "license": "ISC",
   "devDependencies": {
+    "browser-sync": "^2.18.7",
     "gulp": "^3.9.1",
     "gulp-plumber": "^1.1.0",
     "gulp-pug": "^3.2.0",
-    "http-server": "^0.9.0",
     "pug": "^2.0.0-beta11"
   }
 }
