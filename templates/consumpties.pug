@@ -2,8 +2,14 @@ mixin dranken(price, items)
 	if items
 		.col-sm-6.price-container
 			section.price
-				div #{items}
-				.consumptions ............................................ X #{price} = ..............
+				if items[0].length === 1
+					div #{items}
+				else
+					for itm in items
+						div #{itm}
+
+				.consumptions
+					div ............................................ X #{price} = ..............
 
 
 mixin dranken150
@@ -32,10 +38,10 @@ body
 	.page
 		h1 Consumpties
 		.header
-			span Datum:......................
+			span Datum:........................................................................
 			br
 			br
-			span Naam:.......................
+			span Naam:.........................................................................
 
 		.container.prices
 			.row

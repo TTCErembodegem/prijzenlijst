@@ -12,7 +12,7 @@ html, body {
 	height: 464px;
 
 	max-width: 333px;
-	border: 1px solid black;
+	/*border: 1px solid black;*/
 	padding: 6px;
 }
 
@@ -23,7 +23,9 @@ h1 {
 
 .header {
 	margin-top: 8px;
+	overflow: hidden;
 }
+
 
 .prices {
 	margin-top: 25px;
@@ -35,11 +37,13 @@ section.price {
 
 .consumptions {
 	margin-top: 10px;
+	/*border: 1px solid black;*/
 }
 
 .total {
 	float: right;
-	margin-top: 25px;
+	margin-top: 20px;
 	padding: 10px;
 	border: 1px solid black;
 }
+

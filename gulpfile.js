@@ -16,8 +16,8 @@ var runSequence = require('run-sequence');
 var locals = {
   dranken150: {
     price: '1,50',
-    items: ['Cola / Light / Zero', 'Jupiler / Hoegaerden', 'Spa / Vittel', 'Koffie / Soep (!?)'],
-    itemsShort: 'Cola / Jupiler / Hoegaerden / Spa / Vittel / Koffie / Soep (!?)',
+    items: ['Cola / Light / Zero', 'Jupiler / Hoegaerden', 'Spa / Vittel', 'Koffie / Soep'],
+    itemsShort: ['Cola / Jupiler / Hoegaerden', 'Spa / Vittel / Koffie / Soep'],
   },
   dranken200: {
     price: '2,00',
@@ -31,8 +31,8 @@ var locals = {
   },
   drankenZwareBieren: {
     price: '2,50',
-    items: ['Zware bieren', 'Leffe / Blond / Donker (!?)', 'Duvel / La Chouffe (!?)'],
-    itemsShort: 'Aquarius / Leffe / Duvel / La Chouffe',
+    items: ['Zware bieren', 'Leffe Blond', 'Chimay Blauw', 'Duvel / La Chouffe'],
+    itemsShort: 'Aquarius / Leffe / Chimay / Duvel / La Chouffe',
   },
   versnaperingen: {
     price: '1,00',
@@ -96,7 +96,7 @@ gulp.task('serve', ['build'], function () {
 
   gulp.watch(src + '**/*.pug', ['pug', 'pdf']);
   gulp.watch(src + '**/!(*.pug)', ['copyres', 'pdf']);
-  gulp.watch(dest + '**/*.*').on('change', browserSync.reload); // TODO: great.. since the pdf the reload doesn't work anymore
+  gulp.watch(dest + '**/*.*').on('change', browserSync.reload); // TODO: great.. since the pdf the html reload doesn't work anymore
 });
 
 
